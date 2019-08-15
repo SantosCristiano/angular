@@ -1,5 +1,96 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-primary" role="alert">
+          <p>{{titulo}}</p>
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-12">
+      <app-header></app-header>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+        <app-body></app-body>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="usr">Nome:</label>
+        <input type="text" class="form-control" [(ngModel)]="dados.Nome">
+      </div>
+      <div class="form-group">
+          <label for="usr">Apelido:</label>
+          <input type="text" class="form-control" [(ngModel)]="dados.Apelido">
+      </div>
+      <div class="form-group">
+          <label for="usr">Idade:</label>
+          <input type="text" class="form-control" [(ngModel)]="dados.Idade">
+      </div>
+      <div class="form-group">
+          <label for="usr">Documento:</label>
+          <input type="text" class="form-control" [(ngModel)]="dados.Documento">
+      </div>
+      <button type="button" (click)="eventoBotao()" class="btn btn-primary btn-block">Evento Angular</button>
+    </div>
+    <div class="col-6">
+      <app-filho [propriedadefilho]="dados"></app-filho>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+        <app-footer></app-footer>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+        <ul>
+            <li *ngFor="let info of informacion">
+              <h5>{{ info.Nome | slice:0:4 }} | {{ info.Apelido | titlecase }} | {{ info.Saldo | percent}}</h5>
+              <p>{{ info.Nome | concatenarCurso:info.Apelido }}</p>
+            </li>
+        </ul>
+        {{ informacion | json}}
+    </div>
+</div>
+
+<h3>Componente Routing</h3>
+
+<h5>Opções de Rotas</h5>
+<ul>
+  <li>
+    <h2><a [routerLink]="['/']">Home</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['/componente1']">Componente 1</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['/componente2']">Componente 2</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['/componente20']">Componente 3</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['/componente2', 7000]">Um parâmetro</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['/componente2', 900, 1200]">Dois parâmetros</a></h2>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+
+
+
+</div>
+
+
+
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!--<div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -18,4 +109,4 @@
   </li>
 </ul>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet>-->

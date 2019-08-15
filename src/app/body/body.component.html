@@ -1,0 +1,53 @@
+<h1>Noticias do Angular</h1>
+
+<div class="row">
+    <div class="col-10"></div>
+    <div class="col-2">
+        <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <select class="form-control" id="selectorNoticias" (change)="eventoControl($event)">
+                <option *ngFor="let cat of categorias" value="{{ cat.codigo }}">{{ cat.texto }}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div *ngFor="let noticia of noticias">
+            <div *ngIf="noticia.categoria.codigo==1; else opcion2">
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-4">
+                        <img style="width: 380px;" src="{{ noticia.imagem }}" />
+                    </div>     
+                    <div class="col-8">
+                        <h5> {{ noticia.titulo }}</h5>
+                        <p> {{ noticia.texto }}</p>
+                    </div>           
+                </div>
+            </div>
+            <ng-template #opcion2>
+                    <div class="row" style="margin-top: 10px;">    
+                            <div class="col-12">
+                                <h5> {{ noticia.titulo }}</h5>
+                                <p> {{ noticia.texto }}</p>
+                            </div>           
+                        </div>
+            </ng-template>
+            
+        </div>
+    </div>        
+</div>
+
+<section id="one">
+    Conteúdo da sessão 1
+</section>
+
+<section id="two">
+    Conteúdo da sessão 2
+</section>
+
+<section id="tree">
+    Conteúdo da sessão 3
+</section>
+    
