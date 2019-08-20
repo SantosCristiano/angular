@@ -24,6 +24,12 @@ import { PersonaService } from './servicio/persona.service';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 const routes:Routes = [
   { path:'', component: Componente0Component },
   { path:'componente1', component: Componente1Component },
@@ -50,13 +56,15 @@ const routes:Routes = [
   ],
   imports: [
     BrowserModule,
+    ToastModule.forRoot(),
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [ProductosService,PersonaService],
+  providers: [ProductosService,PersonaService, ToastsManager],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
